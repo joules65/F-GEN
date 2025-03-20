@@ -37,14 +37,19 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo Section */}
           <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
-            <img
-              src="./logo.png"  // Directly referencing from `public/` folder
-              alt="F-gen Logo"
-              height={1050}
-              width={1050}
-              className="h-10 w-auto" // Adjust size if needed
-            />
-            <span className="text-xl font-bold text-teal-400">F-gen</span>
+            <a
+              href="https://f-gen.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://res.cloudinary.com/dhkscpkf5/image/upload/v1742503660/logo_hypiy0.png"  
+                alt="F-gen Logo"
+                height={40}  
+                width={150}  
+                className="h-auto w-auto"
+              />
+            </a>
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,12 +65,9 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            
 
             <button className="px-4 py-2 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full text-white font-semibold hover:opacity-90 transition-opacity">
-              <Link to="/prototype">
-              Get Started
-              </Link>
+              <Link to="/prototype">Get Started</Link>
             </button>
           </div>
 
