@@ -45,9 +45,7 @@ const Navbar = () => {
               <img
                 src="https://res.cloudinary.com/dhkscpkf5/image/upload/v1742503660/logo_hypiy0.png"  
                 alt="F-gen Logo"
-                height={20}  
-                width={30}  
-                className="h-auto w-auto"
+                className="h-10"  
               />
             </a>
           </Link>
