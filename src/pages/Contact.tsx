@@ -6,7 +6,7 @@ const ContactForm = () => {
 
   if (state.succeeded) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-emerald-700 to-blue-800 p-6">
+      <div className="flex items-center justify-center min-h-screen bg-slate-50 p-6">
         <div className="w-full max-w-lg bg-gray-900 text-white shadow-xl rounded-2xl p-6">
           <h2 className="text-2xl font-semibold text-center text-emerald-300">Thank You!</h2>
           <p className="text-center text-blue-300">Your message has been received. We'll get back to you soon.</p>
@@ -16,7 +16,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-emerald-700 to-blue-800 p-6">
+    <div className="flex items-center justify-center min-h-screen bg-slate-50 p-6">
       <div className="w-full max-w-lg bg-gray-900 text-white shadow-xl rounded-2xl">
         <div className="p-6 space-y-6">
           <h2 className="text-2xl font-semibold text-center text-emerald-300">Get in Touch</h2>
