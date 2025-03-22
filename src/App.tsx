@@ -9,6 +9,7 @@ import Documentation from './pages/Documentation';
 import Contact from './pages/Contact';
 import Prototype from './pages/Prototype';
 import Team from './pages/Team';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/team" element={<Team />} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );

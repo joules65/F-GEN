@@ -1,212 +1,270 @@
-import React, { useEffect, useState } from 'react';
-import { Activity, Brain, Users, BarChart3 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const IntegratedHero = () => {
+const images = [
+  "https://res.cloudinary.com/dhkscpkf5/image/upload/v1742648830/david-vives-l_ov5A67rI4-unsplash_kjcp8c.jpg",
+  "https://res.cloudinary.com/dhkscpkf5/image/upload/v1742648827/samuel-scalzo-iqGtaQnk3VM-unsplash_k4qdg8.jpg",
+  "https://res.cloudinary.com/dhkscpkf5/image/upload/v1742648826/p-l-FfJJD6SCcvs-unsplash_h3xjck.jpg",
+  "https://res.cloudinary.com/dhkscpkf5/image/upload/v1742648845/andy-vult-zwZpdhoTbU0-unsplash_al5qfq.jpg",
+];
+
+const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  
+  const heroRef = useRef(null);
+
+  // Image slider effect
   useEffect(() => {
-    // Trigger animation after component mounts
-    setIsVisible(true);
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="min-h-screen pt-16 relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 z-0" />
-              
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)]">
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h2 className="text-sm sm:text-base textev
-              -teal-400 font-mono">OUR HEALTHCARE INNOVATION: <span className="text-yellow-500">THINK TANK</span> </h2>
-              <h1 className="text-4xl sm:text-5xl font-bold gradient-text leading-tight">
-                The Future of Emergency Response is Here
-              </h1>
-              <p className="text-gray-400 text-lg max-w-xl">
-                F-gen is revolutionizing healthcare delivery through cutting-edge technology and AI-driven solutions.
-              </p>
-            </div>
-                        
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full text-white font-semibold hover:opacity-90 transition-opacity">
-                <Link to={"/Prototype"}>
-                Get Started
-                </Link>
-              </button>
-              <button className="px-6 py-3 bg-slate-800 rounded-full text-white font-semibold hover:bg-slate-700 transition-colors border border-slate-700">
-                View Documentation
-              </button>
-            </div>
-            
-            {/* Card section with resized geometric stat cards */}
-            <div className="flex flex-wrap gap-4 text-gray-400 justify-start">
-              {/* Hexagonal Card - resized */}
-              <div 
-                className={`stat-card relative overflow-hidden transform hover:scale-105 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ 
-                  transitionDelay: '100ms',
-                  clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-                  width: '150px',
-                  height: '170px',
-                  background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)'
-                }}
-              >
-                <div className="hexagon-content flex flex-col items-center justify-center h-full">
-                  <div className="icon-container p-2 rounded-full bg-teal-500/20 mb-2 animate-pulse-slow">
-                    <Users className="w-5 h-5 text-teal-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold gradient-text text-center">500</h3>
-                  <p className="text-center text-xs">Healthcare Partners</p>
-                </div>
-                <div className="absolute inset-0 bg-teal-500/5 hexagon-shimmer"></div>
-              </div>
-              
-              {/* Circular Card - resized */}
-              <div 
-                className={`stat-card flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-emerald-500/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ 
-                  transitionDelay: '200ms',
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(20, 184, 166, 0.05) 70%)',
-                  border: '2px solid rgba(16, 185, 129, 0.2)'
-                }}
-              >
-                <div className="absolute inset-0 circle-pulse"></div>
-                <div className="icon-container p-2 rounded-full bg-emerald-500/20 mb-2 rotate-icon">
-                  <Brain className="w-5 h-5 text-emerald-400" />
-                </div>
-                <h3 className="text-2xl font-bold gradient-text text-center">1M+</h3>
-                <p className="text-center text-xs">Patients hope to serve</p>
-                <div className="absolute -left-6 -bottom-6 w-10 h-10 rounded-full bg-emerald-500/10 animate-ping-slow"></div>
-                <div className="absolute -right-4 -top-8 w-8 h-8 rounded-full bg-teal-500/10 animate-ping-slow" style={{animationDelay: '1.5s'}}></div>
-              </div>
-              
-              {/* Rhombus Card - resized */}
-              <div 
-                className={`stat-card relative flex items-center justify-center overflow-hidden transition-all duration-500 transform hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ 
-                  transitionDelay: '300ms',
-                  width: '140px',
-                  height: '140px',
-                  clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-                  background: 'linear-gradient(45deg, rgba(20, 184, 166, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)',
-                  border: '1px solid rgba(20, 184, 166, 0.3)'
-                }}
-              >
-                <div className="absolute inset-0 rhombus-glow"></div>
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="icon-container p-2 rounded-full bg-teal-500/20 mb-2 bounce-icon">
-                    <BarChart3 className="w-5 h-5 text-teal-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold gradient-text text-center">99%</h3>
-                  <p className="text-center text-xs">Accuracy</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Right side with image and floating icon*/}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/30 to-emerald-500/30 rounded-full blur-3xl opacity-70" />
-            <img
-              src="https://res.cloudinary.com/dhkscpkf5/image/upload/v1740433222/Screenshot_2025-01-27_165743_gibrwp.png"
-              alt="AI Healthcare"
-              className="relative rounded-2xl shadow-2xl border border-slate-800 w-full"
-              style={{ animation: 'float 6s ease-in-out infinite' }}
-            />
-            <div className="absolute -top-4 -right-4 w-14 h-14 bg-slate-800/80 backdrop-blur-sm rounded-lg border border-teal-500/30 flex items-center justify-center shadow-lg rotate-12" style={{ animation: 'float 6s ease-in-out infinite', animationDelay: '1s' }}>
-              <Activity className="w-7 h-7 text-teal-400" />
-            </div>
-          </div>
-        </div>
-      </div>
+  // Animation on load
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Optional: Intersection Observer for scroll-based animations
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
 
-      {/* CSS for animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.7; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.05); }
-        }
-        
-        @keyframes ping-slow {
-          0% { transform: scale(0.2); opacity: 0.8; }
-          80%, 100% { transform: scale(1.2); opacity: 0; }
-        }
-        
-        @keyframes rotate {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
-        }
-        
-        @keyframes shimmer {
-          0% { opacity: 0.3; }
-          50% { opacity: 0.6; }
-          100% { opacity: 0.3; }
-        }
-        
-        @keyframes pulse-ring {
-          0% { transform: scale(0.8); opacity: 0.3; }
-          50% { transform: scale(1.1); opacity: 0.6; }
-          100% { transform: scale(0.8); opacity: 0.3; }
-        }
-        
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 15px 2px rgba(20, 184, 166, 0.2); }
-          50% { box-shadow: 0 0 25px 5px rgba(20, 184, 166, 0.4); }
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-        
-        .animate-ping-slow {
-          animation: ping-slow 5s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-        
-        .rotate-icon {
-          animation: rotate 15s linear infinite;
-        }
-        
-        .bounce-icon {
-          animation: bounce 2s ease-in-out infinite;
-        }
-        
-        .hexagon-shimmer {
-          animation: shimmer 4s ease-in-out infinite;
-        }
-        
-        .circle-pulse {
-          animation: pulse-ring 4s ease-in-out infinite;
-          border-radius: 50%;
-        }
-        
-        .rhombus-glow {
-          animation: glow 4s ease-in-out infinite;
-        }
-        
-        .gradient-text {
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          background-image: linear-gradient(to right, #14b8a6, #10b981);
-        }
-      `}</style>
-    </div>
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.2)",
+      transition: { duration: 0.3 }
+    },
+    tap: { scale: 0.95 }
+  };
+
+  // Calculate indicator positions
+  const indicators = Array.from({ length: images.length });
+
+  return (
+    <section
+      ref={heroRef}
+      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 sm:px-12 bg-cover bg-center overflow-hidden"
+    >
+      {/* Background Images with Enhanced Transition */}
+      <AnimatePresence>
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${image})` }}
+            initial={{ opacity: 0, scale: index === currentImage ? 1.05 : 1 }}
+            animate={{ 
+              opacity: index === currentImage ? 1 : 0,
+              scale: index === currentImage ? 1 : 1.05
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.8, ease: "easeInOut" }}
+          />
+        ))}
+      </AnimatePresence>
+
+      {/* Enhanced Overlay with Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-0"></div>
+
+      {/* Content Wrapper */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        className="max-w-5xl mx-auto flex flex-col items-center justify-center space-y-8 relative z-10"
+      >
+        {/* Animated Logo */}
+        <motion.div
+          variants={itemVariants}
+          className="relative"
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-50 blur-sm"
+          />
+          <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg relative z-10">
+            <img src="/logo.png" alt="Logo" className="w-24 h-24" />
+          </div>
+        </motion.div>
+
+        {/* Main Heading with Mask Animation */}
+        <motion.div variants={itemVariants} className="overflow-hidden">
+          <motion.h1
+            className="text-4xl sm:text-6xl font-extrabold leading-tight text-white"
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500">
+              Transforming Healthcare
+            </span>
+            <br />
+            <span className="text-white">with the community and AI</span>
+          </motion.h1>
+        </motion.div>
+
+        {/* Subheading with typing animation */}
+        <motion.p
+          variants={itemVariants}
+          className="mt-4 text-xl text-gray-200 max-w-3xl mx-auto font-light"
+        >
+          Revolutionizing first aid and emergency response through
+          <span className="text-yellow-400 font-medium ml-2">
+            smart AI-driven solutions.
+          </span>
+        </motion.p>
+
+        {/* Call to Action Buttons - Improved Layout */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md justify-center"
+        >
+          <motion.a
+            href="/documentation"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            className="px-8 py-4 bg-gradient-to-r from-red-800 to-red-600 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Documentation
+          </motion.a>
+          <motion.a
+            href="/prototype"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            className="px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            Prototype
+          </motion.a>
+        </motion.div>
+
+        {/* Image Indicators - Improved Positioning */}
+        <motion.div 
+          variants={itemVariants}
+          className="flex gap-3 mt-6"
+        >
+          {indicators.map((_, index) => (
+            <motion.button
+              key={index}
+              className={`w-3 h-3 rounded-full ${
+                currentImage === index ? "bg-yellow-400" : "bg-gray-400 bg-opacity-60"
+              } focus:outline-none`}
+              onClick={() => setCurrentImage(index)}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              animate={currentImage === index ? { 
+                scale: [1, 1.2, 1],
+                transition: { duration: 1, repeat: Infinity }
+              } : {}}
+              aria-label={`View image ${index + 1}`}
+            />
+          ))}
+        </motion.div>
+      </motion.div>
+      
+      {/* Scroll Indicator - Better Positioning */}
+      <motion.div
+        variants={itemVariants}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ 
+          opacity: 1,
+          y: [0, 10, 0],
+          transition: { 
+            opacity: { delay: 1.5, duration: 0.5 },
+            y: { delay: 1.5, duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+          }
+        }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="flex flex-col items-center">
+          <span className="text-yellow-400 text-sm mb-2 font-light">Scroll Down</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 text-yellow-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 
-export default IntegratedHero;
+export default Hero;
