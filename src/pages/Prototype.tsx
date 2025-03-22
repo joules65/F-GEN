@@ -202,7 +202,7 @@ const Prototype = () => {
             </div>
             <Link to="https://kiongozi-ai.vercel.app/">
               <button className="px-8 py-3 bg-white text-teal-700 rounded-md hover:bg-blue-50 transition-all duration-200 font-medium">
-                Launch Interactive Demo
+                Launch Interactive Demo now!
               </button>
             </Link>
           </div>
