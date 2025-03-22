@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-teal-400 shadow-md backdrop-blur-sm py-1" 
+          ? "bg-teal-700 shadow-md backdrop-blur-sm py-1" 
           : "bg-teal-900 py-2"
       }`}
     >
@@ -52,7 +52,7 @@ const Navbar = () => {
           <Link to="/" className="flex-shrink-0 flex items-center space-x-2 group">
             <div className="h-8 w-8 flex items-center justify-center">
               <img
-                src="/logo.png"
+                src="https://res.cloudinary.com/dhkscpkf5/image/upload/v1742503660/logo_hypiy0.png"
                 alt="F-gen Logo"
                 className="h-8 w-8 object-contain transition-transform duration-300 group-hover:rotate-6"
               />
