@@ -109,7 +109,7 @@ const Documentation = () => {
       icon: <FileText className="w-6 h-6 text-white" />,
       title: "Integration Guide",
       description: "Github Repository with steps to download application prototype.",
-      link: "https://github.com/joules65/F-GEN",
+      link: "https://github.com/joules65/Kiongozi-Mockup-Prototype",
       animIcon: () => (
         <div className="relative w-10 h-10">
           <motion.div
