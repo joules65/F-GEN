@@ -32,9 +32,9 @@ const teamMembers = [
     ]
   },
   {
-    name: "Mercy Erioluwa Akintayo",
+    name: "Erioluwa Mercy Akintayo",
     role: "Creative Lead",
-    image: "https://res.cloudinary.com/dhkscpkf5/image/upload/v1741974732/tresor-kande-LakFt4OtKxg-unsplash_pstro3.jpg",
+    image: "https://res.cloudinary.com/dhkscpkf5/image/upload/v1742758290/Mercy_kxpoe2.jpg",
     description: "Directing the creative vision and managing media strategy for all team initiatives.",
     quote: "If it ain't broke, don't fix it.",
     countries: [
@@ -113,7 +113,7 @@ const Team = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className={`w-full h-full ${member.name.includes("Tumba") ? "object-contain bg-slate-100" : "object-cover"}`}
+                  className={`w-full h-full ${member.name.includes("Jean-luc") ? "object-contain bg-slate-100" : "object-cover"}`}
                 />
                 
                 {/* Flag Banner */}
