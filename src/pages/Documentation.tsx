@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, CheckCircle, ChevronRight, ChevronLeft, Info, Calendar, Users, DollarSign } from 'lucide-react';
+import { Play, CheckCircle, ChevronRight, ChevronLeft, Info, Calendar, Users, DollarSign, Download, Maximize } from 'lucide-react';
 
 const Documentation = () => {
   const [activeChallenge, setActiveChallenge] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   
   // Grand Challenges data
   const challenges = [
@@ -159,6 +159,36 @@ const Documentation = () => {
     return src.includes('cloudinary') || src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.mov');
   };
 
+  // Function to download current video
+  const downloadVideo = () => {
+    const videoSrc = challenges[activeChallenge].videoSrc;
+    const fileName = `${challenges[activeChallenge].title.replace(/\s+/g, '_')}.mp4`;
+    
+    // Create an anchor element
+    const a = document.createElement('a');
+    a.href = videoSrc;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  // Function to enter fullscreen and play video
+  const viewFullScreenVideo = () => {
+    if (videoRef.current) {
+      // First play the video
+      videoRef.current.play();
+      setIsVideoPlaying(true);
+      
+      // Then enter fullscreen
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitRequestFullscreen) { /* Safari */
+        videoRef.current.webkitRequestFullscreen();
+      }
+    }
+  };
+
   return (
     <div className={`min-h-screen py-16 px-6 sm:px-8 bg-slate-50 transition-opacity duration-500 ${isPageLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <div className="max-w-7xl mx-auto">
@@ -204,6 +234,7 @@ const Documentation = () => {
                     src={challenges[activeChallenge].videoSrc} 
                     className="w-full h-full object-cover"
                     playsInline
+                    controls={isVideoPlaying}
                   />
                 ) : (
                   <img 
@@ -318,10 +349,18 @@ const Documentation = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-              <button className="px-6 py-3 bg-yellow-400 text-white rounded-md hover:bg-teal-700 transition-colors duration-200 font-medium">
+              <button 
+                onClick={viewFullScreenVideo}
+                className="px-4 py-2 bg-yellow-400 text-white rounded-md hover:bg-teal-700 transition-colors duration-200 font-medium flex items-center justify-center gap-2 text-sm"
+              >
+                <Maximize className="h-4 w-4" />
                 View Complete Details
               </button>
-              <button className="px-6 py-3 border border-slate-300 text-slate-700 rounded-md hover:bg-slate-50 transition-colors duration-200 font-medium">
+              <button 
+                onClick={downloadVideo}
+                className="px-4 py-2 border border-slate-300 text-slate-700 rounded-md hover:bg-slate-50 transition-colors duration-200 font-medium flex items-center justify-center gap-2 text-sm"
+              >
+                <Download className="h-4 w-4" />
                 Download Resources
               </button>
             </div>

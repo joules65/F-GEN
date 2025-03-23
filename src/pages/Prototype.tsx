@@ -180,9 +180,11 @@ const Prototype = () => {
                     <ExternalLink className="h-4 w-4" />
                   </button>
                 </Link>
-                <button className="flex-1 px-6 py-3 border border-slate-300 bg-white text-slate-700 rounded-md hover:bg-slate-50 transition-colors duration-200 font-medium">
-                  Request Documentation
-                </button>
+                <Link to="/Documentation" className="flex-1">
+                  <button className="flex-1 px-6 py-3 border border-slate-300 bg-white text-slate-700 rounded-md hover:bg-slate-50 transition-colors duration-200 font-medium">
+                    Request Documentation
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
