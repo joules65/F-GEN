@@ -200,7 +200,7 @@ const Prototype = () => {
                 Please note that this demo is a prototype showcase to illustrate our vision and core functionality.
               </p>
             </div>
-            <Link to="https://kiongozi-ai.vercel.app/">
+            <Link to="https://github.com/joules65/Kiongozi-Mockup-Prototype">
               <button className="px-8 py-3 bg-white text-teal-700 rounded-md hover:bg-blue-50 transition-all duration-200 font-medium">
                 Launch Interactive Demo now!
               </button>
