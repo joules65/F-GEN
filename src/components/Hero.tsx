@@ -25,7 +25,7 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
     
-    // Optional: Intersection Observer for scroll-based animations
+   
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -84,7 +84,7 @@ const Hero = () => {
       ref={heroRef}
       className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 sm:px-12 bg-cover bg-center overflow-hidden"
     >
-      {/* Background Images with Enhanced Transition */}
+      {/* Background Images with nice Transition */}
       <AnimatePresence>
         {images.map((image, index) => (
           <motion.div
@@ -123,7 +123,7 @@ const Hero = () => {
             className="absolute inset-0 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-50 blur-sm"
           />
           <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg relative z-10">
-            <img src="/logo.png" alt="Logo" className="w-24 h-24" />
+            <img src="https://res.cloudinary.com/dhkscpkf5/image/upload/v1742732811/cropped_image_xxir8z.png" alt="Logo" className="w-24 h-24" />
           </div>
         </motion.div>
 
@@ -164,7 +164,7 @@ const Hero = () => {
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="px-8 py-4 bg-gradient-to-r from-red-800 to-red-600 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="px-8 py-4 bg-gradient-to-r from-red-100 to-yellow-600 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +187,7 @@ const Hero = () => {
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="px-8 py-4 bg-gradient-to-r from-red-300 to-yellow-500 text-white font-bold rounded-full shadow-lg text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

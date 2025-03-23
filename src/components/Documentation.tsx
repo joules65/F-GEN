@@ -33,8 +33,8 @@ const Documentation = () => {
     {
       icon: <BookOpen className="w-6 h-6 text-white" />,
       title: "Getting Started",
-      description: "Quick start guide and basic concepts of F-gen's healthcare platform",
-      link: "#",
+      description: "Quick Pitch Deck and basic concepts of F-gen's healthcare platform",
+      link: "https://pitch.com/v/f-gen-pitch-deck-abavmm",
       animIcon: () => (
         <motion.div 
           className="relative w-10 h-10"
@@ -55,18 +55,18 @@ const Documentation = () => {
         </motion.div>
       ),
       preview: [
-        "Installation",
-        "Authentication",
-        "Basic Usage",
-        "Configuration",
-        "FAQs"
+        "Our Story",
+        "Our Mission",
+        "Market Analysis",
+        "Statistics",
+        "Business Model"
       ]
     },
     {
       icon: <Code className="w-6 h-6 text-white" />,
-      title: "API Reference",
-      description: "Complete API documentation with examples and use cases",
-      link: "#",
+      title: "Work Book",
+      description: "Complete documentation with examples and use cases",
+      link: "https://docs.google.com/spreadsheets/d/1Wuqy_LuCtouIlTgz4Z6HPkfUWjT_Fbsa1uXnXNbQwfg/edit?usp=sharing",
       animIcon: () => (
         <div className="relative w-10 h-10 flex items-center justify-center">
           <motion.div
@@ -98,18 +98,18 @@ const Documentation = () => {
         </div>
       ),
       preview: [
-        "Endpoints",
-        "Authentication",
-        "Parameters",
-        "Rate Limits",
-        "Response Formats"
+        "Team",
+        "PESTLE Analysis",
+        "Templates",
+        "SWOT Analysis",
+        "Lean Canvas"
       ]
     },
     {
       icon: <FileText className="w-6 h-6 text-white" />,
       title: "Integration Guide",
-      description: "Step-by-step guide for seamless system integration",
-      link: "#",
+      description: "Github Repository with steps to download application prototype.",
+      link: "https://github.com/joules65/F-GEN",
       animIcon: () => (
         <div className="relative w-10 h-10">
           <motion.div
@@ -134,10 +134,10 @@ const Documentation = () => {
       ),
       preview: [
         "System Requirements",
-        "Data Mapping",
-        "Testing Procedures",
+        "Application UI/UX",
+        "Development Build",
         "Security Measures",
-        "Troubleshooting"
+        "Expo Go"
       ]
     }
   ];
@@ -218,6 +218,11 @@ const Documentation = () => {
       transition: { duration: 0.3 }
     }
   };
+  
+  // Handle direct navigation to link
+  const handleNavigation = (link) => {
+    window.location.href = link;
+  };
 
   return (
     <div className="py-32 relative bg-stone-50 overflow-hidden">
@@ -226,7 +231,7 @@ const Documentation = () => {
         className="absolute inset-0 opacity-40 pointer-events-none"
         animate={controls}
       >
-        <div className="absolute top-40 -left-20 w-64 h-64 rounded-full bg-blue-200 mix-blend-multiply blur-3xl opacity-20" />
+        <div className="absolute top-40 -left-20 w-64 h-64 rounded-full bg-teal-200 mix-blend-multiply blur-3xl opacity-20" />
         <div className="absolute bottom-40 -right-20 w-80 h-80 rounded-full bg-emerald-200 mix-blend-multiply blur-3xl opacity-20" />
       </motion.div>
 
@@ -234,7 +239,7 @@ const Documentation = () => {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-emerald-500 opacity-20"
+          className="absolute w-1 h-1 rounded-full bg-teal-500 opacity-20"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -258,7 +263,7 @@ const Documentation = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-sm sm:text-base text-teal-500 font-mono tracking-wider"
           >
-            DOCUMENTATION
+            BEHIND THE SCENES
           </motion.h2>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +271,7 @@ const Documentation = () => {
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-5xl font-bold gradient-text"
             style={{
-              background: "linear-gradient(to right, #3b82f6, #10b981)",
+              background: "linear-gradient(to right, #0d9488, #115e59)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent"
             }}
@@ -279,28 +284,26 @@ const Documentation = () => {
             transition={{ delay: 0.4 }}
             className="text-gray-600 max-w-2xl mx-auto text-lg"
           >
-            Comprehensive documentation and resources to help you implement F-gen's healthcare solutions.
+            Comprehensive documentation and resources to highlight F-gen's healthcare solutions.
           </motion.p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {docs.map((doc, index) => (
-            <motion.a
+            <motion.div
               key={index}
-              href={doc.link}
               initial="initial"
               whileHover={activeCard === null ? "hover" : ""}
               animate={activeCard === index ? "active" : "initial"}
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
                 setActiveCard(activeCard === index ? null : index);
               }}
               variants={cardVariants}
-              className="hover-card group p-8 rounded-2xl border transition-all duration-300 backdrop-blur-xl shadow-md relative overflow-hidden"
+              className="hover-card group p-8 rounded-2xl border transition-all duration-300 backdrop-blur-xl shadow-md relative overflow-hidden cursor-pointer"
             >
               {/* Background gradient overlay that appears on hover */}
               <motion.div 
-                className="absolute inset-0 opacity-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/10"
+                className="absolute inset-0 opacity-0 bg-gradient-to-br from-teal-600/20 to-teal-900/10"
                 variants={{
                   initial: { opacity: 0 },
                   hover: { opacity: 1 },
@@ -312,7 +315,7 @@ const Documentation = () => {
               <motion.div 
                 className="mb-6 p-4 rounded-xl inline-block relative z-10 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, #3b82f6 0%, #10b981 100%)",
+                  background: "linear-gradient(135deg, #0d9488 0%, #115e59 100%)",
                 }}
               >
                 {activeCard === index ? doc.animIcon() : doc.icon}
@@ -349,8 +352,14 @@ const Documentation = () => {
                 {doc.description}
               </motion.p>
               
-              {/* Link text with arrow */}
-              <div className="flex items-center transition-colors">
+              {/* Direct Link Button */}
+              <a 
+                href={doc.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center transition-colors z-20 relative"
+              >
                 <motion.span 
                   className="mr-2"
                   variants={linkVariants}
@@ -362,7 +371,7 @@ const Documentation = () => {
                 >
                   <ArrowRight className="w-4 h-4 transition-transform" />
                 </motion.div>
-              </div>
+              </a>
               
               {/* Preview content that appears when clicked */}
               <motion.div
@@ -401,7 +410,7 @@ const Documentation = () => {
                             repeat: Infinity,
                             delay: i * 0.2
                           }}
-                          className="w-1 h-1 bg-blue-400 rounded-full mr-2"
+                          className="w-1 h-1 bg-teal-400 rounded-full mr-2"
                         />
                         {item}
                       </motion.li>
@@ -416,10 +425,16 @@ const Documentation = () => {
                     transition={{ delay: 0.5 }}
                     className="mt-4 pt-4 border-t border-gray-700 flex items-center justify-between"
                   >
-                    <motion.span className="text-emerald-400 text-sm flex items-center">
+                    <a 
+                      href={doc.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-emerald-400 text-sm flex items-center hover:underline z-20 relative"
+                    >
                       <MousePointer className="w-3 h-3 mr-1" />
                       Click to view full docs
-                    </motion.span>
+                    </a>
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{ 
@@ -432,7 +447,7 @@ const Documentation = () => {
                   </motion.div>
                 </div>
               </motion.div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
