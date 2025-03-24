@@ -12,7 +12,7 @@ const Documentation = () => {
     {
       id: 1,
       title: "The 1st Challenge: The Intro!",
-      description: "Before you see the change, we'll let you know who we are!",
+      description: "Before you see the change, we'll let you know who we are! This challenge required the team to understand who the team is and what everybody brings to the group. Starting with a funny introduction; a tiktok challenge to keep the audience hooked, we'll make sure you know what we stand for.",
       videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1741708473/77145e659ece4631908ae240081706aa_tdl2st.mp4",
       completionDate: "January 2025",
       achievements: [
