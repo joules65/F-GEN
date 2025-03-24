@@ -126,31 +126,7 @@ const About = () => {
             F-gen combines cutting-edge technology with medical expertise to transform emergency services across Africa, setting new standards in healthcare innovation and accessibility.
           </motion.p>
           
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="flex justify-center space-x-4"
-          >
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center px-6 py-3 bg-teal-900 hover:bg-teal-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Our Services
-              <ChevronRight className="ml-2 w-4 h-4" />
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center px-6 py-3 bg-white hover:bg-slate-50 text-teal-900 font-medium rounded-lg transition-all duration-300 shadow-md hover:shadow-lg border border-slate-200"
-            >
-              Join Us
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </motion.button>
-          </motion.div>
-        </div>
+          {/* Deleted Component: Proved Redundant */}
 
         {/* Our Story Section */}
         <div id="learn-more" className="grid md:grid-cols-12 gap-12 items-center mb-32">
