@@ -284,7 +284,7 @@ const About = () => {
               icon: <Award className="w-12 h-12 text-white" />,
               title: "Our Impact",
               description: "Transforming emergency healthcare delivery across Africa, we aim to serve millions of patients with faster, more reliable care that saves lives every day.",
-              extraContent: "Our early implementations have shown a 35% reduction in emergency response times and a 28% improvement in patient outcomes for time-sensitive conditions like cardiac arrests and strokes. We've partnered with over 50 hospitals in 7 countries, with expansion plans underway."
+              extraContent: "Our early implementations show basic data response to first aid situations, however while not as contextual as it should be yet, with the right partnerships and continuous implementation of technology we should be able to implement KiongoziCare as a beacon of technology and Emergency Response."
             }
           ].map((item, index) => (
             <motion.div
