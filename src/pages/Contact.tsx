@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("xaneqrgd");
-  const [focusedField, setFocusedField] = useState(null);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   if (state.succeeded) {
     return (
@@ -22,8 +23,8 @@ const ContactForm = () => {
             >
               Send Another Message
             </button>
-            <button className="mt-6 px-6 py-3 bg-teal-700 text-yellow-400 font-bold rounded-lg hover:bg-teal-900 transition-all duration-350">
-              <Link to="/">Return To Home Screen</Link>
+            <button className="mt-6 px-6 py-2 bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-600 transition-all duration-300">
+              <Link to="/">Return To HomeScreen</Link>
             </button>
           </div>
         </div>
