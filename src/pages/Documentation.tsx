@@ -29,7 +29,7 @@ const Documentation = () => {
     {
       id: 2,
       title: "Challenge 1: The Bloopers!",
-      description: "Work hard, Play harder!",
+      description: "Work hard, Play harder! Watch the behind the scenes of the first video and see how we combine fun and work in all our doings.",
       videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1740434655/Untitled_design_1_eetppj.mp4",
       completionDate: "January 2025",
       achievements: [
@@ -46,7 +46,7 @@ const Documentation = () => {
     {
       id: 3,
       title: "Challenge 2",
-      description: "The Breakfast show",
+      description: "The Breakfast show: A mock news station giving you the report on the emergency situation in a rural Rwandan community.",
       videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1741709735/The_Breakfast_Show_-_F-Gen_720p_h264_wwm3j4.mp4",
       completionDate: "February 2025",
       achievements: [
@@ -62,7 +62,7 @@ const Documentation = () => {
     {
       id: 4,
       title: "Challenge 3: Help Lab",
-      description: "The Help-Lab",
+      description: "The Help-Lab: We ventured to the Strive Foundation to gain insight on what it's like to be an organization for social impact. Our small donation of 67000 francs was given to a bright, young 6th grade student to help with her transport fare to school.",
       videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1741710301/F_GEN_HELP_LAB_-_F-Gen_720p_h264_uo9ne0.mp4",
       completionDate: "March 2025",
       achievements: [
@@ -78,7 +78,7 @@ const Documentation = () => {
     {
       id: 5,
       title: "Challenge 4: Interviews in the field",
-      description: "Finding out what it's like to work in related industries",
+      description: "Finding out what it's like to work in related industries - Mental Health Emergencies",
       videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1741890646/F-GEN_2_1_h8bwbd.mp4",
       completionDate: "March 2025",
       achievements: [
@@ -105,6 +105,22 @@ const Documentation = () => {
         teamSize: 5,
         duration: "1 week",
         budget: "0 FRW"
+      }
+    },
+    {
+      id: 7,
+      title: "Challenge 6: The Final Deliverable",
+      description: "Our Digital Footprint, the documentation of all our work during the E-Lab journey",
+      videoSrc: "https://res.cloudinary.com/dhkscpkf5/video/upload/v1742807435/F-GEN_WEBSITE_-_Made_with_Clipchamp_cueuxg.mp4",
+      completionDate: "March 2025",
+      achievements: [
+        "See the Journey of the group",
+        "KiongoziCare is ready for pitching!"
+      ],
+      stats: {
+        teamSize: 5,
+        duration: "6 weeks",
+        budget: "Make I send Aza?"
       }
     },
   ];
