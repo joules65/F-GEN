@@ -17,10 +17,10 @@ const ContactForm = () => {
               Your message has been received. We'll get back to you soon.
             </p>
             <button 
+              onClick={() => window.location.reload()} 
               className="mt-6 px-6 py-2 bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-600 transition-all duration-300"
             >
-              <Link to="/Contact">Send Another Message</Link>
-              
+              Send Another Message
             </button>
           </div>
         </div>
